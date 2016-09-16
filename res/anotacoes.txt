@@ -1,0 +1,5 @@
+Registrador
+'C' - 'A' // posição do vetor de instruções
+CI  // contador de instruções ( armazena o endereço do próximo código de instrução, quando for -1 chegou no EOF(End Of File))
+
+no exemplo o professor separou os 12 primeiros bytes para instruções (3 instruções)
