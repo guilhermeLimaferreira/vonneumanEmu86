@@ -7,4 +7,6 @@ no exemplo o professor separou os 12 primeiros bytes para instruções (3 instruçõ
 a entrada será acionada e através do barramento enviará um requisito de acesso (1), a memória através do barramento responderá 0 ou 1 com a permissão de envio, a buffer de ES enviará o dado via barramento e a memória salvará no espaço de memória já utilizado. Tudo através de eventos.
 em quanto isso a cpu vai consumindo os comandos e estes serão liberados da memória, acionando o evento da memória "livre" que enviará sinal 1 para o buffer que enviará ou 0 ou um pacote de 3 a 4 bytes, quando esse dado for 0 a memória passará ao ci do processador o valor -1
 
-quando a memória recebe o dado ela automáticamente envia ao processador a informação e a ci do próximo comando, eventos novamente.
+quando a memória recebe o dado ela automáticamente envia ao processador a informação e a ci do próximo comando. Mais uma vez eventos.
+
+números negativos indicarão registradores e posições da memória
