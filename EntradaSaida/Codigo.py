@@ -1,7 +1,14 @@
 class Codigo:
 
     def __init__(self, args):
-        self.parametros = []
+        self.parametros = args
+        self.byteArray = toByteArray(args)
+        self.linha = toLine(args)
 
-        for i in args:
-            self.parametros.append(i)
+
+
+    def toByteArray(self,args):
+        pass
+
+    def toLine(self,args):
+        pass
