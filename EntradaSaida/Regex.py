@@ -3,7 +3,6 @@ import Codigo
 
 
 class Regex:
-
     def __init__(self, linhas):
         self.linhas = linhas
         self.traducao = []
@@ -18,21 +17,19 @@ class Regex:
             "add": r"^\s*(\w+)\s+(\w+)\s*,\s*(\w+)\s*$",
             "mov": r"^\s*(\w+)\s+(\w+)\s*,\s*(\w+)\s*$",
             "imul": r"^\s*(\w+)\s+(\w+)\s*,\s*(\w+)\s*,\s*(\w+)\s*$",
-            "inc": r"^\s*(\w+)\s+(\w+)\s*,\s*(\w+)\s*,\s*(\w+)\s*$", FAZER EXPRESSAO
+            "inc": r"^\s*(\w+)\s+(\w+)\s*$",
         }
 
         for linha in self.linhas:
             expressao = None
 
-            expressao = patterns[operacao]
+            expressao = patterns[operacao.match(linha).group(0)]
 
             if expressao == None:
                 raise Exception('Operador inexistente')
 
+            comandos = re.findall(expressao, linha)
 
-
-            codigo = Codigo(patterns[expressao], linha)
+            codigo = Codigo(comandos)
 
             self.traducao.append(codigo)
-
-        return self.traducao
