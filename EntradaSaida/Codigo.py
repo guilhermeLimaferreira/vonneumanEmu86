@@ -18,23 +18,23 @@ class Codigo:
 
         self.byteArray = [-1, -1, -1, -1]
 
-        # pegando qual operação será executada
+        # pegando qual operacao sera executada
         self.byteArray[0] = ops[self.parametros[0]]
 
-        # pegando o primeiro valor, independe da operação
+        # pegando o primeiro valor, independe da operacao
         self.byteArray[1] = self.solve_value(self.parametros[1])
 
-        # se a operação for add, mov ou imul existe o 3º parametro
+        # se a operacao for add, mov ou imul existe o 3 parametro
         if self.byteArray[0] > ops["inc"]:
             self.byteArray[2] = self.solve_value(self.parametros[2])
 
-            # se a operação for imul existe o 4º parametro
+            # se a operacao for imul existe o 4 parametro
             if self.byteArray[0] > ops["mov"]:
                 self.byteArray[3] = self.solve_value(self.parametros[3])
 
         return self.byteArray
 
-    # converte o valor para posição da memória, registrador ou inteiro
+    # converte o valor para posicao da memoria, registrador ou inteiro
     @staticmethod
     def solve_value(valor):
         retorno = None
@@ -42,7 +42,7 @@ class Codigo:
             # tenta covnerter para inteiro
             retorno = int(valor)
             if retorno > Constantes.MAIOR_INTEIRO:
-                raise MemoryError("Não é possível armazenar valores maiores que " + Constantes.MAIOR_INTEIRO)
+                raise MemoryError("Nao e possivel armazenar valores maiores que " + Constantes.MAIOR_INTEIRO)
         except ValueError:
             pass
 
@@ -54,10 +54,10 @@ class Codigo:
         except TypeError:
             pass
 
-        # converte para posição de memória
+        # converte para posicao de memoria
         if retorno == None:
             retorno = -int(valor, 16)
             if -retorno > Constantes.TAMANHO_MEMORIA_DADOS:
-                raise MemoryError("Posição de memória inexistente")
+                raise MemoryError("Posicao de memoria inexistente")
 
         return retorno

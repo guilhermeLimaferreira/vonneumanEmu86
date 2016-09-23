@@ -17,7 +17,7 @@ class Regex:
             "add": r"^\s*(\w+)\s+(\w+)\s*,\s*(\w+)\s*$",
             "mov": r"^\s*(\w+)\s+(\w+)\s*,\s*(\w+)\s*$",
             "imul": r"^\s*(\w+)\s+(\w+)\s*,\s*(\w+)\s*,\s*(\w+)\s*$",
-            "inc": r"^\s*(\w+)\s+(\w+)\s*$",
+            "inc": r"^\s*(\w+)\s+(\w+)\s*$"
         }
 
         for linha in self.linhas:
