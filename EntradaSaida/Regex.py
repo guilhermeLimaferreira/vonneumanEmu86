@@ -12,7 +12,7 @@ class Regex:
         pettern = r"(\w+)"
 
         operacao = re.compile(pettern)
-
+        #add 2, 3 / imul c, 4, 5
         patterns = {
             "add": r"^\s*(\w+)\s+(\w+)\s*,\s*(\w+)\s*$",
             "mov": r"^\s*(\w+)\s+(\w+)\s*,\s*(\w+)\s*$",

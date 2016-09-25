@@ -16,23 +16,23 @@ class Codigo:
     def to_byte_array(self):
         ops = self.__class__.operacoes
 
-        self.byteArray = [-1, -1, -1, -1]
+        byteArray = [-1, -1, -1, -1]
 
         # pegando qual operacao sera executada
-        self.byteArray[0] = ops[self.parametros[0]]
+        byteArray[0] = ops[self.parametros[0]]
 
         # pegando o primeiro valor, independe da operacao
-        self.byteArray[1] = self.solve_value(self.parametros[1])
+        byteArray[1] = self.solve_value(self.parametros[1])
 
         # se a operacao for add, mov ou imul existe o 3 parametro
-        if self.byteArray[0] > ops["inc"]:
-            self.byteArray[2] = self.solve_value(self.parametros[2])
+        if byteArray[0] > ops["inc"]:
+            byteArray[2] = self.solve_value(self.parametros[2])
 
             # se a operacao for imul existe o 4 parametro
-            if self.byteArray[0] > ops["mov"]:
-                self.byteArray[3] = self.solve_value(self.parametros[3])
+            if byteArray[0] > ops["mov"]:
+                byteArray[3] = self.solve_value(self.parametros[3])
 
-        return self.byteArray
+        return byteArray
 
     # converte o valor para posicao da memoria, registrador ou inteiro
     @staticmethod
@@ -43,6 +43,7 @@ class Codigo:
             retorno = int(valor)
             if retorno > Constantes.MAIOR_INTEIRO:
                 raise MemoryError("Nao e possivel armazenar valores maiores que " + Constantes.MAIOR_INTEIRO)
+            return retorno
         except ValueError:
             pass
 
@@ -51,6 +52,7 @@ class Codigo:
             retorno = -ord(valor)
             if -retorno > Constantes.MAIOR_REGISTRADOR or -retorno < Constantes.MENOR_REGISTRADOR:
                 raise MemoryError("Registrador inexistente")
+            return retorno
         except TypeError:
             pass
 
@@ -59,5 +61,5 @@ class Codigo:
             retorno = -int(valor, 16)
             if -retorno > Constantes.TAMANHO_MEMORIA_DADOS:
                 raise MemoryError("Posicao de memoria inexistente")
-
         return retorno
+

@@ -2,9 +2,7 @@ from unittest import TestCase
 from Codigo import Codigo
 
 class TestCodigo(TestCase):
-    def test_to_byte_array(self):
 
-        self.fail()
 
     def test_solve_value(self):
         memoria = Codigo.solve_value("0x0010") # -16
